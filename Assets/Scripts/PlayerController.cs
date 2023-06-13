@@ -18,19 +18,29 @@ public class PlayerController : MonoBehaviour
     public float Speed = 5.0f;
     private Rigidbody rb;
     private int PickUpCount;
+    private Timer timer;
 
 
     // Start is called before the first frame update
     //Hello world :D
     void Start()
+
+
     {
+
+        timer = FindObjectOfType<Timer>();
+
         rb = GetComponent<Rigidbody>();
 
 
         //get the number of pickups in out scene
 
         PickUpCount = GameObject.FindGameObjectsWithTag("Pickup").Length;
-        print(PickUpCount + " Pickups in the scene");
+        //runs the check pick up function
+        checkPickUps();
+
+        timer.StartTimer();
+
     }
 
     // Update is called once per frame
@@ -48,14 +58,14 @@ public class PlayerController : MonoBehaviour
     }
 
     //private void OnCollisionEnter(Collision collision)
-   // {
-        //if (collision.gameObject.tag == "Pickup")
-       // {
-            //Destroy(collision.gameObject);
-       // }
-           
+    // {
+    //if (collision.gameObject.tag == "Pickup")
+    // {
+    //Destroy(collision.gameObject);
+    // }
 
-  //  }
+
+    //  }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -75,10 +85,20 @@ public class PlayerController : MonoBehaviour
         print(PickUpCount + " Pickups in the scene");
         if (PickUpCount == 0)
         {
-            print("You did it, im so proud of you, you have done amazing, the this is the best thing you have ever done in your life");
+            timer.StopTimer();
+            // prints a message to the console
+            print("Yay you win, your time was " + timer.GetTime());
+
+            //restarts the game
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
+    void cubeSpawner()
+    {
+
+    }
+
 }
 
 
