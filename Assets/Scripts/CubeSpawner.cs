@@ -11,8 +11,9 @@ public class CubeSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnCube();
+       
         CubeAmout = Random.Range(4, 10);
+        SpawnCube();
         print("CubeAmout " + CubeAmout);
     }
 
@@ -22,7 +23,7 @@ public class CubeSpawner : MonoBehaviour
         for (int i = 0; i < CubeAmout; i++)
         {
             GameObject go = Instantiate(Cube);
-            go.transform.position = new Vector3(Random.Range(-10, 10), 1, Random.Range(-10, 10));
+            go.transform.position = new Vector3(Random.Range(-9, 9), 1, Random.Range(-9, 9));
         }
        // GameObject go = Instantiate(Cube);
       // go.transform.position = new Vector3(Random.Range(-10,10), 1 , Random.Range(-10, 10));
