@@ -6,6 +6,7 @@ public class CamraController : MonoBehaviour
 {
     public GameObject player;
     private Vector3 offset;
+    private int rotateSpeed;
 
 
     // Start is called before the first frame update
@@ -21,5 +22,5 @@ public class CamraController : MonoBehaviour
         transform.position = player.transform.position + offset;
     }
 
-    
+   
 }

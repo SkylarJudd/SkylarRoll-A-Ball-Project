@@ -20,7 +20,7 @@ public class Roatator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime * Speed);
+        transform.Rotate(new Vector3(Random.Range(1, 2), Random.Range(1, 2), Random.Range(1, 2) * Time.deltaTime * Speed));
 
        
     }
