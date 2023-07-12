@@ -12,13 +12,14 @@ public class CamraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //this gets the location of the camrea in the scean before the game starts
         offset = transform.position - player.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //get the camras translate position
+        //updates the camras position to it tracks the player
         transform.position = player.transform.position + offset;
     }
 

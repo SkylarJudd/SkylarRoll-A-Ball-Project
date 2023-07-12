@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
     // String is alphanumeric characters.
     // Bool is a true for false statment. 
 
+    //speed is the speed of the player
+    // RB is the rigid body attatched to the player
+    // pick up count is the number value the pick ups in the level 
+    //timer saves the current time
+    // game end is a true for false statment for when the game ends
+
 
     public float Speed = 5.0f;
     private Rigidbody rb;
@@ -69,11 +75,15 @@ public class PlayerController : MonoBehaviour
             //float moveHorizontal = Input.GetAxis("Horizontal");
             //float moveVertical = Input.GetAxis("Vertical");
 
+
+            //sets the 2 movment veribles with the players inputs. 
             float moveHorizontal = Input.GetAxis("Vertical");
             float moveVertical = Input.GetAxis("Horizontal");
 
+            //takes the players inputs and saves it in movement
             Vector3 movement = new Vector3(moveHorizontal, 0, -moveVertical);
 
+            //adds force to the player
             rb.AddForce(movement * Speed);
         }
 
@@ -84,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        //Displays the current time while calling the time fuction
         timerText.text = "Timer " + timer.GetTime().ToString("f2");
     }
 
@@ -101,12 +112,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //triggers when player collides with something the the pickup tag
         if (other.tag == "Pickup")
         {
+            //destorys the coin
             Destroy(other.gameObject);
+
             //decrement the pickup count
             pickUpCount = pickUpCount - 1;
 
+            //calls the check pick up fuction
             CheckPickUps();
 
         }
@@ -114,12 +129,14 @@ public class PlayerController : MonoBehaviour
 
     void CheckPickUps()
     {
-
+        // prints the pickup count on the consol 
         print(pickUpCount + " Pickups in the scene");
+        // updates the ui to display the pickup count
         scoreText.text = "Pickups left: " + pickUpCount;
+        //checks to see if the pickup count is 0
         if (pickUpCount == 0)
         {
-
+            //calls the win game function
             WinGame();
 
         }
@@ -158,6 +175,7 @@ public class PlayerController : MonoBehaviour
     }
     public void QuitGame()
     {
+        //quits the application
         Application.Quit();
     }
 

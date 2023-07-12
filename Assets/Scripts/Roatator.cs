@@ -20,6 +20,7 @@ public class Roatator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //rotates the cubes a random amout 
         transform.Rotate(new Vector3(Random.Range(1, 2), Random.Range(1, 2), Random.Range(1, 2) * Time.deltaTime * Speed));
 
        
