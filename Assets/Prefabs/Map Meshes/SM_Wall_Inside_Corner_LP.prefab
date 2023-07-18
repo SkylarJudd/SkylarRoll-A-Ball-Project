@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5706903316117085222}
   - component: {fileID: 7554235448184842476}
   - component: {fileID: 8475324955867544434}
+  - component: {fileID: 8551168336721849185}
   m_Layer: 0
   m_Name: SM_Wall_Inside_Corner_LP
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8347128810027026745}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -98,3 +99,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5836242275804683541, guid: 0337776bcc9781c4c849b3ac8c665a3f, type: 3}
+--- !u!65 &8551168336721849185
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347128810027026745}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30.000002, y: 10, z: 30}
+  m_Center: {x: 14.999999, y: 5, z: -15}
