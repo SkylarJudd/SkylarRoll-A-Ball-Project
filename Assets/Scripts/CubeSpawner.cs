@@ -35,7 +35,7 @@ public class CubeSpawner : MonoBehaviour
             //go.transform.localPosition = new Vector3( transform.localPosition.x+30, 1 , transform.localPosition.z - 30);
 
             //this takes that game object and gives it a random location within set bounds
-            go.transform.localPosition = new Vector3(Random.Range(transform.localPosition.x, transform.localPosition.x+30), 3, Random.Range(transform.localPosition.z, transform.localPosition.z - 30));
+            go.transform.localPosition = new Vector3(Random.Range(transform.localPosition.x, transform.localPosition.x+30), transform.localPosition.y + 1 , Random.Range(transform.localPosition.z, transform.localPosition.z - 30));
         }
        // GameObject go = Instantiate(Cube);
       // go.transform.position = new Vector3(Random.Range(-10,10), 1 , Random.Range(-10, 10));
