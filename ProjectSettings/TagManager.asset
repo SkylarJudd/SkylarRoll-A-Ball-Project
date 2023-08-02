@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pickup
+  - Apple_Pickup
+  - Grape_Pickup
+  - Berry_Pickup
   layers:
   - Default
   - TransparentFX

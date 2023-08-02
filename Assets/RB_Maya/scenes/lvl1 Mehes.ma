@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: lvl1 Mehes.ma
-//Last modified: Wed, Aug 02, 2023 04:53:56 PM
+//Last modified: Wed, Aug 02, 2023 10:02:18 PM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "gameFbxExporter" "gameFbxExporter" "1.0";
@@ -11,17 +11,17 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202304191415-7fa20164c6";
 fileInfo "osv" "Windows 10 Pro v2009 (Build: 19045)";
-fileInfo "UUID" "6194A3DA-4DDE-B9FB-5D23-8D96CF509F1C";
+fileInfo "UUID" "D1ED041C-465D-AF00-38F2-3593D96E17B1";
 createNode transform -s -n "persp";
 	rename -uid "2AD59B15-4BE9-61A0-30AB-25B9A308268F";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 6.8002026168926957 15.361529515003674 -17.1062851923657 ;
-	setAttr ".r" -type "double3" -39.285974935499915 168.20000000009148 0 ;
+	setAttr ".t" -type "double3" 4.8669652525911413 6.7286942385674129 -12.478460491971003 ;
+	setAttr ".r" -type "double3" -18.885974935485969 157.80000000006743 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "DA8D45C5-4220-5A56-AD3E-BDACF3FFA735";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 27.720271773855586;
+	setAttr ".coi" 17.759044968602197;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
