@@ -77,9 +77,9 @@ public class Player2Controller : MonoBehaviour
 
 
             //sets the 2 movment veribles with the players inputs. 
-            float moveHorizontal = Input.GetAxis("P2Vertical");
+            float moveHorizontal = Input.GetAxis("P1Vertical");
            // Debug.Log("p2Vert detected");
-            float moveVertical = Input.GetAxis("P2Horizontal");
+            float moveVertical = Input.GetAxis("P1Horizontal");
 
 
             //takes the players inputs and saves it in movement
