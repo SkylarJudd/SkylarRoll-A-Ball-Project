@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerOne_MovmentController : MonoBehaviour
+public class PlayerTwo_MovmentController1 : MonoBehaviour
 {
 
     public float speed = 5.0f;
     public float boostAmout = 5.0f;
     public float bounceForce = 5.0f;
     public string PlayerTwoTag;
-    public AudioSource collissionSound;
 
     private Rigidbody rigidBody;
 
@@ -20,7 +19,6 @@ public class PlayerOne_MovmentController : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        
     }
 
     // Update is called once per frame
@@ -33,9 +31,9 @@ public class PlayerOne_MovmentController : MonoBehaviour
 
 
             //sets the 2 movment veribles with the players inputs. 
-            float moveHorizontal = Input.GetAxis("P1Vertical");
+            float moveHorizontal = Input.GetAxis("P2Vertical");
             // Debug.Log("p2Vert detected");
-            float moveVertical = Input.GetAxis("P1Horizontal");
+            float moveVertical = Input.GetAxis("P2Horizontal");
 
 
             //takes the players inputs and saves it in movement
@@ -53,12 +51,9 @@ public class PlayerOne_MovmentController : MonoBehaviour
         {
 
             Rigidbody PlayerTwoRB = collision.rigidbody;
-            collissionSound.Play;
-            PlayerTwoRB.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
-            print("Boom from p1");
 
+            PlayerTwoRB.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
+            print("Boom from p2");
         }
     }
-
-    
 }
