@@ -72,7 +72,7 @@ public class CamToggleScript : MonoBehaviour
             if (toggle == true)
             {
                 SnapCam();
-                print("player 1 is Right of player 2");
+               // print("player 1 is Right of player 2");
                 player1Cam.rect = new Rect(0.5f, 0, 0.5f, 1);
                player2Cam.rect = new Rect(0, 0, 0.5f, 1);
                 toggle = false;
@@ -81,7 +81,7 @@ public class CamToggleScript : MonoBehaviour
             }
 
         }
-        print(toggle);
+       // print(toggle);
     }
 
     void SnapCam()
@@ -97,7 +97,7 @@ public class CamToggleScript : MonoBehaviour
         player1CamObject.SetActive(false);
         player2CamObject.SetActive(false);
         toggle = true;
-        print(toggle);
+        //print(toggle);
 
     }
 

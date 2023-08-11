@@ -1,0 +1,53 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+
+public class P2PickUpController : MonoBehaviour
+{
+    public int p2Score = 0;
+    private int AppleScore = 5;
+    private int GrapeScore = 10;
+    private int BerryScore = 1;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //triggers when player collides with something the the pickup tag
+        if (other.tag == "Apple_Pickup")
+        {
+            //destorys the coin
+            Destroy(other.gameObject);
+
+            //decrement the pickup count
+            p2Score = p2Score + AppleScore;
+            print("PlayerScore: " + p2Score);
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pop", 1, 100);
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pickup2", 1, 75);
+
+        }
+        else if (other.tag == "Grape_Pickup")
+        {
+            //destorys the coin
+            Destroy(other.gameObject);
+
+            //decrement the pickup count
+            p2Score = p2Score + GrapeScore;
+            print("PlayerScore: " + p2Score);
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pop", 1, 100);
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pickup2", 1, 100);
+
+        }
+        else if (other.tag == "Berry_Pickup")
+        {
+            //destorys the coin
+            Destroy(other.gameObject);
+
+            //decrement the pickup count
+            p2Score = p2Score + BerryScore;
+            print("PlayerScore: " + p2Score);
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pop", 1, 100);
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pickup2", 1, 50);
+        }
+    }
+}

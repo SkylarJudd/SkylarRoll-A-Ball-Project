@@ -9,7 +9,12 @@ public class PlayerOne_MovmentController : MonoBehaviour
     public float boostAmout = 5.0f;
     public float bounceForce = 5.0f;
     public string PlayerTwoTag;
-    public AudioSource collissionSound;
+    public string Wall;
+    public string Boost;
+    
+
+    public float distanceToGround = 1.0f;
+    public bool grounded = false;
 
     private Rigidbody rigidBody;
 
@@ -47,16 +52,51 @@ public class PlayerOne_MovmentController : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, distanceToGround + 0.1f))
+        {
+            grounded = true;
+            print("Grounded: " + grounded);
+        }
+        else
+        {
+            grounded = false;
+            print("Grounded: " + grounded);
+        }
+    }
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == PlayerTwoTag)
         {
 
             Rigidbody PlayerTwoRB = collision.rigidbody;
-            collissionSound.Play;
             PlayerTwoRB.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
-            print("Boom from p1");
+            //print("Boom from p1");
+            float floatVelocity = rigidBody.velocity.magnitude;
+            int intVelocity = (int)floatVelocity;
+            //print("float: " + floatVelocity + "int: " + intVelocity);
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("PlayerHit", 1.0f, (Random.Range(75, 125) + (intVelocity * 50)) / 2);
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("PlayerHitWall", rigidBody.velocity.magnitude / 6.0f, 100);
 
+        }
+
+        if (collision.transform.tag == Wall)
+        {
+
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("PlayerHitWall", rigidBody.velocity.magnitude / 6.0f, 100);
+            print("Wall Hit");
+
+        }
+
+        if (collision.transform.tag == Boost)
+        {
+
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("BoostSound", rigidBody.velocity.magnitude / 6.0f, 100);
+            print("Boost");
+            rigidBody.AddForce(Vector3.forward * boostAmout);
         }
     }
 

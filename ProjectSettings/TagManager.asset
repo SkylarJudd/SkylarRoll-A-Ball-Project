@@ -10,6 +10,9 @@ TagManager:
   - Berry_Pickup
   - PlayerOneTag
   - PlayerTwoTag
+  - Wall
+  - Boost
+  - Floor
   layers:
   - Default
   - TransparentFX
