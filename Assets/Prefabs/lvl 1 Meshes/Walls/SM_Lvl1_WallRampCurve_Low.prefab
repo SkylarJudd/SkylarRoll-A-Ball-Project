@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8001634942925691321}
   m_Layer: 0
   m_Name: SM_Lvl1_WallRampCurve_Low
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

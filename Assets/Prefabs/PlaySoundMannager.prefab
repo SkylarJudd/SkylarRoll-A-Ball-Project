@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8977245769541035012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8977245769541035010}
+  - component: {fileID: 8977245769541035013}
+  m_Layer: 0
+  m_Name: PlaySoundMannager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8977245769541035010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977245769541035012}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.277518, y: -3.3470585, z: 2.7968104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8977245769541035013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977245769541035012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e239a9eb799b8954393b35a9accb9d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSounds:
+  - name: PlayerHit
+    clip: {fileID: 8300000, guid: 5675bebf6e2a2094b9bfb93f139c538d, type: 3}
+    volume: 1
+    pitch: 0.71
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHitWall
+    clip: {fileID: 8300000, guid: cb19ef3934e422b429cef47cbb2c2b48, type: 3}
+    volume: 1
+    pitch: 0.71
+    loop: 0
+    source: {fileID: 0}
+  - name: Roll
+    clip: {fileID: 8300000, guid: 3c41bdbf7c5933e43a5aa52799fccbc2, type: 3}
+    volume: 1
+    pitch: 0.71
+    loop: 0
+    source: {fileID: 0}
+  - name: BoostSound
+    clip: {fileID: 8300000, guid: e8bf23393a64cd042a175165159ee3fe, type: 3}
+    volume: 0.694
+    pitch: 1.37
+    loop: 0
+    source: {fileID: 0}
+  - name: Pickup2
+    clip: {fileID: 8300000, guid: f859f10b617bb744087ee63e74a4e1aa, type: 3}
+    volume: 1
+    pitch: 1.17
+    loop: 0
+    source: {fileID: 0}
+  - name: Pop
+    clip: {fileID: 8300000, guid: e46aeb9addfd22e4ea9958037c211748, type: 3}
+    volume: 1
+    pitch: 1.17
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonSelect
+    clip: {fileID: 8300000, guid: 10de572e7717e734fad48091b6a78538, type: 3}
+    volume: 1
+    pitch: 1.17
+    loop: 0
+    source: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4880605297362142155}
   m_Layer: 0
   m_Name: SM_Lvl1_WallOutSideCurve_Low
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
