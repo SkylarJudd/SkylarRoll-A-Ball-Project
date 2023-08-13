@@ -87,3 +87,27 @@ MonoBehaviour:
     pitch: 1.17
     loop: 0
     source: {fileID: 0}
+  - name: ButtonOver
+    clip: {fileID: 8300000, guid: 94ff6497a9ea69d479fe7ff3fe23bf91, type: 3}
+    volume: 1
+    pitch: 1.17
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonExit
+    clip: {fileID: 8300000, guid: 0ee704235714e1d41ba37d74054a9f8b, type: 3}
+    volume: 1
+    pitch: 1.17
+    loop: 0
+    source: {fileID: 0}
+  - name: Main Menu Sound
+    clip: {fileID: 8300000, guid: 103105d7b2bcdd24ea100ebaac81bf72, type: 3}
+    volume: 1
+    pitch: 1.17
+    loop: 1
+    source: {fileID: 0}
+  - name: Lvl one theme
+    clip: {fileID: 8300000, guid: 7bf56753862c7214fb1e731847cd41f4, type: 3}
+    volume: 1
+    pitch: 1.17
+    loop: 1
+    source: {fileID: 0}

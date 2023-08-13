@@ -59,7 +59,7 @@ public class CamToggleScript : MonoBehaviour
             if (toggle == true)
             {
                 SnapCam();
-                print("player 1 is left of player 2");
+                //print("player 1 is left of player 2");
                 player1Cam.rect = new Rect(0, 0, 0.5f, 1);
                 player2Cam.rect = new Rect(0.5f, 0, 0.5f, 1);
                 toggle = false;

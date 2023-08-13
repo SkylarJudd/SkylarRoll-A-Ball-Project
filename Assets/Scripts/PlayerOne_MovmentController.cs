@@ -18,7 +18,7 @@ public class PlayerOne_MovmentController : MonoBehaviour
 
     private Rigidbody rigidBody;
 
-    public bool gameEnd;
+    private bool gamePaused = true;
 
 
     // Start is called before the first frame update
@@ -31,8 +31,9 @@ public class PlayerOne_MovmentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameEnd == false)
+        if (gamePaused == false)
         {
+            print("Player 1 movement active");
             //float moveHorizontal = Input.GetAxis("Horizontal");
             //float moveVertical = Input.GetAxis("Vertical");
 
@@ -52,17 +53,29 @@ public class PlayerOne_MovmentController : MonoBehaviour
         }
     }
 
+    public void Player1ControllerActive(bool active)
+    {
+        print("Player1activeCalled");
+        if (active == true)
+        {
+            print("Player 1 game paused toggled");
+            gamePaused = false;
+        }
+
+
+    }
+
     private void FixedUpdate()
     {
         if (Physics.Raycast(transform.position, Vector3.down, distanceToGround + 0.1f))
         {
             grounded = true;
-            print("Grounded: " + grounded);
+            //print("Grounded: " + grounded);
         }
         else
         {
             grounded = false;
-            print("Grounded: " + grounded);
+           // print("Grounded: " + grounded);
         }
     }
 
@@ -87,7 +100,7 @@ public class PlayerOne_MovmentController : MonoBehaviour
         {
 
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("PlayerHitWall", rigidBody.velocity.magnitude / 6.0f, 100);
-            print("Wall Hit");
+            //print("Wall Hit");
 
         }
 
@@ -95,7 +108,7 @@ public class PlayerOne_MovmentController : MonoBehaviour
         {
 
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("BoostSound", rigidBody.velocity.magnitude / 6.0f, 100);
-            print("Boost");
+            //print("Boost");
             rigidBody.AddForce(Vector3.forward * boostAmout);
         }
     }

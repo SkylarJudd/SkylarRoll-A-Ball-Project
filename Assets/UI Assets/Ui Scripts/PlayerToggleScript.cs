@@ -116,6 +116,7 @@ public class PlayerToggleScript : MonoBehaviour
         {
             p1ReadyImage.sprite = readySprite;
             p1Ready = true;
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("ButtonSelect", 1, 75);
             GameReadyCheck();
         }
     }
@@ -126,6 +127,7 @@ public class PlayerToggleScript : MonoBehaviour
         {
             p2ReadyImage.sprite = readySprite;
             p2Ready = true;
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("ButtonSelect", 1, 125);
             GameReadyCheck();
         }
     }
@@ -134,7 +136,8 @@ public class PlayerToggleScript : MonoBehaviour
     {
         p1Ready = false;
         p1ReadyImage.sprite = unReadySprite;
-        
+        FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("ButtonExit", 0.5f, 75);
+
 
     }
 
@@ -142,7 +145,7 @@ public class PlayerToggleScript : MonoBehaviour
     {
         p2Ready = false;
         p2ReadyImage.sprite = unReadySprite;
-        
+        FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("ButtonExit", 0.5f, 125);
     }
 
     public void GameReadyCheck()
@@ -152,6 +155,8 @@ public class PlayerToggleScript : MonoBehaviour
         {
             readyScreen.SetActive(false);
             gameUI.SetActive(true);
+            FindObjectOfType<PlayerAudioMannager>().StopPlayerSound("Main Menu Sound");
+            FindObjectOfType<lvlOne_GameMannager>().Gamestarter("Start");
         }
     }
 

@@ -38,9 +38,9 @@ public class PlayerAudioMannager : MonoBehaviour
         }
     }
 
-    public void PlayPlayerSound (string name, float InputVolume, float inputPitch)
+    public void PlayPlayerSound(string name, float InputVolume, float inputPitch)
     {
-       PlayerSound s = Array.Find(playerSounds, sound => sound.name == name);
+        PlayerSound s = Array.Find(playerSounds, sound => sound.name == name);
 
         if (s == null)
         {
@@ -51,6 +51,21 @@ public class PlayerAudioMannager : MonoBehaviour
         s.source.pitch = inputPitch / 100;
         s.source.volume = InputVolume;
         s.source.Play();
+        // s.source.Stop();
         //print("Sound played");
+    }
+
+    public void StopPlayerSound(string name)
+    {
+        PlayerSound s = Array.Find(playerSounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            print("Sound: " + name + " not found!");
+            return;
+        }
+        s.source.Stop();
+        print("Sound Stopped");
+
     }
 }

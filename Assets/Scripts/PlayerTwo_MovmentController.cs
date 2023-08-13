@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerTwo_MovmentController : MonoBehaviour
+public class PlayerTwo_MovmentController1 : MonoBehaviour
 {
 
     public float speed = 5.0f;
@@ -17,7 +17,7 @@ public class PlayerTwo_MovmentController : MonoBehaviour
 
     private Rigidbody rigidBody;
 
-    private bool gamePaused = true;
+    public bool gamePaused;
 
 
     // Start is called before the first frame update
@@ -31,7 +31,6 @@ public class PlayerTwo_MovmentController : MonoBehaviour
     {
         if (gamePaused == false)
         {
-            print("Player 2 movement active");
             //float moveHorizontal = Input.GetAxis("Horizontal");
             //float moveVertical = Input.GetAxis("Vertical");
 
@@ -51,13 +50,11 @@ public class PlayerTwo_MovmentController : MonoBehaviour
         }
     }
 
-    public void Player2ControllerActive(bool active)
+    public void Player1ControllerActive(bool active)
     {
-        print("Player2activeCalled");
         if (active == true)
         {
-            print("Player 2 game paused toggled");
-            gamePaused = false;
+
         }
 
 
