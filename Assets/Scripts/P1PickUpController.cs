@@ -21,7 +21,8 @@ public class P1PickUpController : MonoBehaviour
 
             //decrement the pickup count
             p1Score = p1Score + AppleScore;
-            print("PlayerScore: " + p1Score);
+            FindObjectOfType<lvlOne_GameMannager>().ScoreUpdate(AppleScore, "P1");
+            //print("PlayerScore: " + p1Score);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pop", 1, 100);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pickup2", 1, 75);
 
@@ -33,7 +34,8 @@ public class P1PickUpController : MonoBehaviour
 
             //decrement the pickup count
             p1Score = p1Score + GrapeScore;
-            print("PlayerScore: " + p1Score);
+            FindObjectOfType<lvlOne_GameMannager>().ScoreUpdate(GrapeScore, "P1");
+            //print("PlayerScore: " + p1Score);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pop", 1, 100);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pickup2", 1, 100);
 
@@ -45,7 +47,8 @@ public class P1PickUpController : MonoBehaviour
 
             //decrement the pickup count
             p1Score = p1Score + BerryScore;
-            print("PlayerScore: " + p1Score);
+            FindObjectOfType<lvlOne_GameMannager>().ScoreUpdate(BerryScore, "P1");
+            //print("PlayerScore: " + p1Score);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pop", 1, 100);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pickup2", 1, 50);
         }

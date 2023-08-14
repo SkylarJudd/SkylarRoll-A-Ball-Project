@@ -8,9 +8,10 @@ public class PlayerOne_MovmentController : MonoBehaviour
     public float speed = 5.0f;
     public float boostAmout = 5.0f;
     public float bounceForce = 5.0f;
-    public string PlayerTwoTag;
-    public string Wall;
-    public string Boost;
+    public string playerTwoTag;
+    public string wall;
+    public string boost;
+    public string respawn;
     
 
     public float distanceToGround = 1.0f;
@@ -19,6 +20,11 @@ public class PlayerOne_MovmentController : MonoBehaviour
     private Rigidbody rigidBody;
 
     private bool gamePaused = true;
+    private bool playerReset = false;
+
+    public GameObject resetPoint;
+    public float resetSpeed;
+    private Vector3 startPosition;
 
 
     // Start is called before the first frame update
@@ -51,6 +57,10 @@ public class PlayerOne_MovmentController : MonoBehaviour
             //adds force to the player
             rigidBody.AddForce(movement * speed);
         }
+        else if (gamePaused == true && playerReset == true)
+        {
+            ResetPlayer();
+        }
     }
 
     public void Player1ControllerActive(bool active)
@@ -61,6 +71,12 @@ public class PlayerOne_MovmentController : MonoBehaviour
             print("Player 1 game paused toggled");
             gamePaused = false;
         }
+        else
+        {
+            gamePaused = true;
+        }
+
+
 
 
     }
@@ -82,7 +98,7 @@ public class PlayerOne_MovmentController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == PlayerTwoTag)
+        if (collision.transform.tag == playerTwoTag)
         {
 
             Rigidbody PlayerTwoRB = collision.rigidbody;
@@ -96,7 +112,7 @@ public class PlayerOne_MovmentController : MonoBehaviour
 
         }
 
-        if (collision.transform.tag == Wall)
+        if (collision.transform.tag == wall)
         {
 
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("PlayerHitWall", rigidBody.velocity.magnitude / 6.0f, 100);
@@ -104,14 +120,42 @@ public class PlayerOne_MovmentController : MonoBehaviour
 
         }
 
-        if (collision.transform.tag == Boost)
+        if (collision.transform.tag == boost)
         {
 
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("BoostSound", rigidBody.velocity.magnitude / 6.0f, 100);
             //print("Boost");
             rigidBody.AddForce(Vector3.forward * boostAmout);
         }
+
+        if (collision.transform.tag == respawn)
+        {
+            gamePaused = true;
+            playerReset = true;
+            rigidBody.velocity = Vector3.zero;
+            startPosition = transform.position;
+            FindObjectOfType<lvlOne_GameMannager>().ScoreUpdate(-10, "P1");
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Fail", 1, 100);
+
+        }
     }
 
-    
+    private void ResetPlayer()
+    {
+        var i = 0.0f;
+        var rate = 1.0f / resetSpeed;
+        while (i < 1.0f)
+        {
+            i += Time.deltaTime * rate;
+            transform.position = Vector3.Lerp(startPosition, resetPoint.transform.position, i);
+        }
+
+        if (transform.position == resetPoint.transform.position)
+        {
+            playerReset = false;
+            gamePaused = false;
+
+        }
+    }
+
 }

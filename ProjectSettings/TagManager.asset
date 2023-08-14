@@ -13,6 +13,7 @@ TagManager:
   - Wall
   - Boost
   - Floor
+  - Death
   layers:
   - Default
   - TransparentFX

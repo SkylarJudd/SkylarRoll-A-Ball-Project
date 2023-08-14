@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1836681818759148016}
   m_Layer: 0
   m_Name: SM_Lvl1_TheFloor_Low
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

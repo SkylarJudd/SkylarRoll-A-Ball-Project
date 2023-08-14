@@ -109,5 +109,23 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7bf56753862c7214fb1e731847cd41f4, type: 3}
     volume: 1
     pitch: 1.17
-    loop: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CountDown
+    clip: {fileID: 8300000, guid: 1172c19acfa243b428fa4c11b2190240, type: 3}
+    volume: 1
+    pitch: 1.17
+    loop: 0
+    source: {fileID: 0}
+  - name: FinalCountDown
+    clip: {fileID: 8300000, guid: afa9de95d421d9647853d65cb30481d5, type: 3}
+    volume: 1
+    pitch: 1.17
+    loop: 0
+    source: {fileID: 0}
+  - name: Fail
+    clip: {fileID: 8300000, guid: 564d7c0281fcb4d4c801bd2fb6f0252b, type: 3}
+    volume: 1
+    pitch: 1.17
+    loop: 0
     source: {fileID: 0}

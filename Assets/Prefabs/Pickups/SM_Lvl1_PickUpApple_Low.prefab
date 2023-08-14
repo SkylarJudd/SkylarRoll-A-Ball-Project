@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7713436045163644587}
   - component: {fileID: 5543744768833270370}
   - component: {fileID: 5543744768833270371}
+  - component: {fileID: 7252988426677823468}
   m_Layer: 0
   m_Name: SM_Lvl1_PickUpApple_Low
   m_TagString: Apple_Pickup
@@ -116,6 +117,26 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.09722533
   m_Center: {x: 0, y: 0.121650964, z: 0.0026435181}
+--- !u!95 &7252988426677823468
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8073649316969047934}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e6f5ee6ced3f42408a103156e5ef839, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8115770343858810196
 GameObject:
   m_ObjectHideFlags: 0

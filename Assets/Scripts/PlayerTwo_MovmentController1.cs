@@ -11,6 +11,7 @@ public class PlayerTwo_MovmentController : MonoBehaviour
     public string PlayerOneTag;
     public string Wall;
     public string Boost;
+    public string respawn;
 
     public float distanceToGround = 1.0f;
     public bool grounded = false;
@@ -18,6 +19,11 @@ public class PlayerTwo_MovmentController : MonoBehaviour
     private Rigidbody rigidBody;
 
     private bool gamePaused = true;
+    private bool playerReset = false;
+
+    public GameObject resetPoint;
+    public float resetSpeed;
+    private Vector3 startPosition;
 
 
     // Start is called before the first frame update
@@ -49,6 +55,10 @@ public class PlayerTwo_MovmentController : MonoBehaviour
             //adds force to the player
             rigidBody.AddForce(movement * speed);
         }
+        else if (gamePaused == true && playerReset == true)
+        {
+            ResetP2Player();
+        }
     }
 
     public void Player2ControllerActive(bool active)
@@ -58,6 +68,10 @@ public class PlayerTwo_MovmentController : MonoBehaviour
         {
             print("Player 2 game paused toggled");
             gamePaused = false;
+        }
+        else
+        {
+            gamePaused = true;
         }
 
 
@@ -85,7 +99,7 @@ public class PlayerTwo_MovmentController : MonoBehaviour
             Rigidbody PlayerTwoRB = collision.rigidbody;
 
             PlayerTwoRB.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
-           // print("Boom from p2");
+            // print("Boom from p2");
         }
 
         if (collision.transform.tag == Wall)
@@ -103,5 +117,34 @@ public class PlayerTwo_MovmentController : MonoBehaviour
             //print("Boost");
             rigidBody.AddForce(Vector3.forward * boostAmout);
         }
+
+        if (collision.transform.tag == respawn)
+        {
+            gamePaused = true;
+            playerReset = true;
+            rigidBody.velocity = Vector3.zero;
+            startPosition = transform.position;
+            FindObjectOfType<lvlOne_GameMannager>().ScoreUpdate(-10, "P2");
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Fail", 1, 100);
+
+        }
     }
+        private void ResetP2Player()
+        {
+            var i = 0.0f;
+            var rate = 1.0f / resetSpeed;
+            while (i < 1.0f)
+            {
+                i += Time.deltaTime * rate;
+                transform.position = Vector3.Lerp(startPosition, resetPoint.transform.position, i);
+            }
+
+            if (transform.position == resetPoint.transform.position)
+            {
+                playerReset = false;
+                gamePaused = false;
+
+            }
+        }
+    
 }

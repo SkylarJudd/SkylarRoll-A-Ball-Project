@@ -10,8 +10,8 @@ public class PlayerAudioMannager : MonoBehaviour
 
     public static PlayerAudioMannager instance;
 
- 
-    void Awake ()
+
+    void Awake()
     {
 
         if (instance == null)
@@ -65,7 +65,35 @@ public class PlayerAudioMannager : MonoBehaviour
             return;
         }
         s.source.Stop();
+        // s.source.Pause();
+        //s.source.UnPause();
+
         print("Sound Stopped");
 
     }
+
+    public void PausePlayerSound(string name, bool pauseState)
+    {
+        PlayerSound s = Array.Find(playerSounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            print("Sound: " + name + " not found!");
+            return;
+        }
+
+        if (pauseState == true)
+        {
+            s.source.Pause();
+        
+        }
+        else
+        {
+            s.source.UnPause();
+
+        }
+
+
+    }
+
 }
