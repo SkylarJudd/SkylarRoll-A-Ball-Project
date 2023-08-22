@@ -110,6 +110,7 @@ public class lvlOne_GameMannager : MonoBehaviour
             gameStarted = true;
             print("enterd if statement");
             countDownTextObject.SetActive(true);
+            Cursor.visible = false;
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("CountDown", 1f, 125);
         }
     }
@@ -206,6 +207,7 @@ public class lvlOne_GameMannager : MonoBehaviour
         {
             gameUi.SetActive(false);
             pausedPanal.SetActive(true);
+            Cursor.visible = true;
             Time.timeScale = 0;
             FindObjectOfType<PlayerAudioMannager>().PausePlayerSound("Lvl one theme", true);
         }
@@ -213,6 +215,7 @@ public class lvlOne_GameMannager : MonoBehaviour
         {
             gameUi.SetActive(true);
             pausedPanal.SetActive(false);
+            Cursor.visible = false;
             Time.timeScale = 1;
             FindObjectOfType<PlayerAudioMannager>().PausePlayerSound("Lvl one theme", false);
         }
