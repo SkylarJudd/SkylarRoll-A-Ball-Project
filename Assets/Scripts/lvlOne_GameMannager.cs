@@ -118,22 +118,52 @@ public class lvlOne_GameMannager : MonoBehaviour
 
     public void ScoreUpdate(int scoreToUpdate, string player)
     {
+        if (scoreToUpdate == -10)
+        {
+            if (player == "P1")
+            {
+                Player1Score /= 2;               
+            }
+            else if (player == "P2")
+            {
+                Player2Score /= 2;
+            }
+        }
+        else
+        {
+            if (player == "P1")
+            {
+                Player1Score += scoreToUpdate;
+            }
+            else if (player == "P2")
+            {
+                Player2Score += scoreToUpdate;
+            }
+            else
+            {
+                print("You are a idiot spell your things corectly");
+            }
+        }
+
+        P1ScoreText.text = Player1Score.ToString("#");
+        P2ScoreText.text = Player2Score.ToString("#"); 
+    }
+
+    public void ScoreCheck(string player)
+    {
         if (player == "P1")
         {
-            Player1Score += scoreToUpdate;
-            P1ScoreText.text = Player1Score.ToString();
+            FindObjectOfType<PlayerOne_MovmentController>().SetBounceForceP1(Player1Score);
 
         }
         else if (player == "P2")
         {
-            Player2Score += scoreToUpdate;
-            P2ScoreText.text = Player2Score.ToString();
+            FindObjectOfType<PlayerTwo_MovmentController>().SetBounceForceP2(Player2Score);
         }
         else
         {
             print("You are a idiot spell your things corectly");
         }
-
     }
 
     void GameTimer()
@@ -151,9 +181,11 @@ public class lvlOne_GameMannager : MonoBehaviour
             FindObjectOfType<PlayerTwo_MovmentController>().Player2ControllerActive(false);
             gameUi.SetActive(false);
             winScreen.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
 
-            MonoFinalScoreText.text = Player2Score.ToString();
-            HueFinalScoreText.text = Player1Score.ToString();
+            MonoFinalScoreText.text = Player2Score.ToString("#");
+            HueFinalScoreText.text = Player1Score.ToString("#");
 
             if (Player1Score > Player2Score)
             {

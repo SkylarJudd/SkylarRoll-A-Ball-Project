@@ -56,10 +56,24 @@ public class PlayerOne_MovmentController : MonoBehaviour
 
             //adds force to the player
             rigidBody.AddForce(movement * speed);
+            OutOfBounds();
         }
         else if (gamePaused == true && playerReset == true)
         {
             ResetPlayer();
+        }
+    }
+
+    void OutOfBounds()
+    {
+        if (gameObject.transform.position.y <= -5)
+        {
+            gamePaused = true;
+            playerReset = true;
+            rigidBody.velocity = Vector3.zero;
+            startPosition = transform.position;
+            FindObjectOfType<lvlOne_GameMannager>().ScoreUpdate(-10, "P1");
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Fail", 1, 100);
         }
     }
 
@@ -95,15 +109,23 @@ public class PlayerOne_MovmentController : MonoBehaviour
         }
     }
 
+    public void SetBounceForceP1(float bounce)
+    {
+        bounceForce = bounce;
+        print("p1 Bouse Force = " + bounceForce);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == playerTwoTag)
         {
+            FindObjectOfType<lvlOne_GameMannager>().ScoreCheck("P1");
 
             Rigidbody PlayerTwoRB = collision.rigidbody;
-            PlayerTwoRB.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
+
+            PlayerTwoRB.AddExplosionForce(bounceForce * 500, collision.contacts[0].point, 5);
             //print("Boom from p1");
+
             float floatVelocity = rigidBody.velocity.magnitude;
             int intVelocity = (int)floatVelocity;
             //print("float: " + floatVelocity + "int: " + intVelocity);

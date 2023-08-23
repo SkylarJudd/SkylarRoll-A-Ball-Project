@@ -54,10 +54,24 @@ public class PlayerTwo_MovmentController : MonoBehaviour
 
             //adds force to the player
             rigidBody.AddForce(movement * speed);
+            OutOfBounds();
         }
         else if (gamePaused == true && playerReset == true)
         {
             ResetP2Player();
+        }
+    }
+
+    void OutOfBounds()
+    {
+        if (gameObject.transform.position.y <= -5)
+        {
+            gamePaused = true;
+            playerReset = true;
+            rigidBody.velocity = Vector3.zero;
+            startPosition = transform.position;
+            FindObjectOfType<lvlOne_GameMannager>().ScoreUpdate(-10, "P2");
+            FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Fail", 1, 100);
         }
     }
 
@@ -91,14 +105,21 @@ public class PlayerTwo_MovmentController : MonoBehaviour
         }
     }
 
+    public void SetBounceForceP2(float bounce)
+    {
+        bounceForce = bounce;
+        print("p2 Bouse Force = " + bounceForce);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == PlayerOneTag)
         {
+            FindObjectOfType<lvlOne_GameMannager>().ScoreCheck("P2");
 
             Rigidbody PlayerTwoRB = collision.rigidbody;
 
-            PlayerTwoRB.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
+            PlayerTwoRB.AddExplosionForce(bounceForce * 500, collision.contacts[0].point, 5);
             // print("Boom from p2");
         }
 
