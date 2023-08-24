@@ -81,7 +81,7 @@ public class lvlOne_GameMannager : MonoBehaviour
                 countDownText.text = countdown.ToString("#");
             }
 
-            print("Count down = " + countdown);
+           // print("Count down = " + countdown);
         }
         //else if (countdown <= 1 && countdown > 0 )
 
@@ -104,11 +104,11 @@ public class lvlOne_GameMannager : MonoBehaviour
 
     public void Gamestarter(string start)
     {
-        print("Called gameStarter");
+       // print("Called gameStarter");
         if (start == "Start")
         {
             gameStarted = true;
-            print("enterd if statement");
+           // print("enterd if statement");
             countDownTextObject.SetActive(true);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -184,8 +184,24 @@ public class lvlOne_GameMannager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 
-            MonoFinalScoreText.text = Player2Score.ToString("#");
-            HueFinalScoreText.text = Player1Score.ToString("#");
+            if (Player1Score == 0)
+            {
+                HueFinalScoreText.text = "0";
+            }
+            else
+            {
+                HueFinalScoreText.text = Player1Score.ToString("#");
+            }
+
+            if (Player2Score == 0)
+            {
+                MonoFinalScoreText.text = "0";
+            }
+            else
+            {
+                MonoFinalScoreText.text = Player2Score.ToString("#");
+            }
+
 
             if (Player1Score > Player2Score)
             {

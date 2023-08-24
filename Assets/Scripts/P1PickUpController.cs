@@ -16,6 +16,7 @@ public class P1PickUpController : MonoBehaviour
         //triggers when player collides with something the the pickup tag
         if (other.tag == "Apple_Pickup")
         {
+            FindObjectOfType<ParticalSpawner>().SpawnPartical(other.transform.position, "+5");
             //destorys the coin
             Destroy(other.gameObject);
 
@@ -29,6 +30,7 @@ public class P1PickUpController : MonoBehaviour
         }
         else if (other.tag == "Grape_Pickup")
         {
+            FindObjectOfType<ParticalSpawner>().SpawnPartical(other.transform.position, "+10");
             //destorys the coin
             Destroy(other.gameObject);
 
@@ -42,6 +44,7 @@ public class P1PickUpController : MonoBehaviour
         }
         else if (other.tag == "Berry_Pickup")
         {
+            FindObjectOfType<ParticalSpawner>().SpawnPartical(other.transform.position, "+1");
             //destorys the coin
             Destroy(other.gameObject);
 

@@ -39,7 +39,7 @@ public class PlayerOne_MovmentController : MonoBehaviour
     {
         if (gamePaused == false)
         {
-            print("Player 1 movement active");
+            //print("Player 1 movement active");
             //float moveHorizontal = Input.GetAxis("Horizontal");
             //float moveVertical = Input.GetAxis("Vertical");
 
@@ -79,10 +79,10 @@ public class PlayerOne_MovmentController : MonoBehaviour
 
     public void Player1ControllerActive(bool active)
     {
-        print("Player1activeCalled");
+        //print("Player1activeCalled");
         if (active == true)
         {
-            print("Player 1 game paused toggled");
+           // print("Player 1 game paused toggled");
             gamePaused = false;
         }
         else
@@ -112,7 +112,7 @@ public class PlayerOne_MovmentController : MonoBehaviour
     public void SetBounceForceP1(float bounce)
     {
         bounceForce = bounce;
-        print("p1 Bouse Force = " + bounceForce);
+       // print("p1 Bouse Force = " + bounceForce);
     }
 
     private void OnCollisionEnter(Collision collision)

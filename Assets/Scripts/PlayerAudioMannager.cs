@@ -68,7 +68,7 @@ public class PlayerAudioMannager : MonoBehaviour
         // s.source.Pause();
         //s.source.UnPause();
 
-        print("Sound Stopped");
+        //print("Sound Stopped");
 
     }
 

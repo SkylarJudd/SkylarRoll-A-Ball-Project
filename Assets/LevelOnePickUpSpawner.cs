@@ -41,10 +41,10 @@ public class LevelOnePickUpSpawner : MonoBehaviour
 
         for (int i = 0; i < numberOfSpawns; i++)
         {
-            print(i);
+            //print(i);
             float x = Mathf.Cos(angle) * radius + direction;
             float y = Mathf.Sin(angle) * radius + direction;
-            print("x =" + x + "y = " + y);
+            //print("x =" + x + "y = " + y);
 
             int lootSelect = Random.Range(1, 101);
             if (lootSelect >= 50)

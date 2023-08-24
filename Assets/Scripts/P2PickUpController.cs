@@ -16,39 +16,42 @@ public class P2PickUpController : MonoBehaviour
         //triggers when player collides with something the the pickup tag
         if (other.tag == "Apple_Pickup")
         {
+            FindObjectOfType<ParticalSpawner>().SpawnPartical(other.transform.position, "+5");
             //destorys the coin
             Destroy(other.gameObject);
 
             //decrement the pickup count
             p2Score = p2Score + AppleScore;
             FindObjectOfType<lvlOne_GameMannager>().ScoreUpdate(AppleScore, "P2");
-            print("PlayerScore: " + p2Score);
+            //print("PlayerScore: " + p2Score);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pop", 1, 100);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pickup2", 1, 75);
 
         }
         else if (other.tag == "Grape_Pickup")
         {
+            FindObjectOfType<ParticalSpawner>().SpawnPartical(other.transform.position, "+10");
             //destorys the coin
             Destroy(other.gameObject);
 
             //decrement the pickup count
             p2Score = p2Score + GrapeScore;
             FindObjectOfType<lvlOne_GameMannager>().ScoreUpdate(GrapeScore, "P2");
-            print("PlayerScore: " + p2Score);
+            //print("PlayerScore: " + p2Score);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pop", 1, 100);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pickup2", 1, 100);
 
         }
         else if (other.tag == "Berry_Pickup")
         {
+            FindObjectOfType<ParticalSpawner>().SpawnPartical(other.transform.position, "+1");
             //destorys the coin
             Destroy(other.gameObject);
 
             //decrement the pickup count
             p2Score = p2Score + BerryScore;
             FindObjectOfType<lvlOne_GameMannager>().ScoreUpdate(BerryScore, "P2");
-            print("PlayerScore: " + p2Score);
+            //print("PlayerScore: " + p2Score);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pop", 1, 100);
             FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("Pickup2", 1, 50);
         }
