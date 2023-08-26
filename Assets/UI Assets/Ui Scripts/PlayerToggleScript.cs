@@ -134,6 +134,7 @@ public class PlayerToggleScript : MonoBehaviour
 
     public void P1ReadyClick()
     {
+        print("Clicked");
         p1Ready = false;
         p1ReadyImage.sprite = unReadySprite;
         FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("ButtonExit", 0.5f, 75);
@@ -143,6 +144,7 @@ public class PlayerToggleScript : MonoBehaviour
 
     public void P2ReadyClick()
     {
+        print("Clicked");
         p2Ready = false;
         p2ReadyImage.sprite = unReadySprite;
         FindObjectOfType<PlayerAudioMannager>().PlayPlayerSound("ButtonExit", 0.5f, 125);

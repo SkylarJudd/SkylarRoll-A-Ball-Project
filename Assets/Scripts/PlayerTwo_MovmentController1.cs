@@ -53,7 +53,16 @@ public class PlayerTwo_MovmentController : MonoBehaviour
             //Debug.Log(movement);
 
             //adds force to the player
-            rigidBody.AddForce(movement * speed);
+
+            if (moveHorizontal != 0 && moveVertical != 0)
+            {
+                rigidBody.AddForce(movement * (speed / 1.5f));
+            }
+            else
+            {
+                rigidBody.AddForce(movement * speed);
+            }
+
             OutOfBounds();
         }
         else if (gamePaused == true && playerReset == true)

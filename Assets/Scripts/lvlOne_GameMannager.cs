@@ -29,6 +29,10 @@ public class lvlOne_GameMannager : MonoBehaviour
     public GameObject pausedPanal;
     public TMP_Text MonoFinalScoreText;
     public TMP_Text HueFinalScoreText;
+
+    public GameObject HueWinScreen;
+    public GameObject MonoWinScreen;
+    public GameObject TieScreen;
     public TMP_Text WinnerText;
 
     public float timeRemaining = 80;
@@ -108,7 +112,7 @@ public class lvlOne_GameMannager : MonoBehaviour
         if (start == "Start")
         {
             gameStarted = true;
-           // print("enterd if statement");
+           print("enterd if statement");
             countDownTextObject.SetActive(true);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -205,20 +209,23 @@ public class lvlOne_GameMannager : MonoBehaviour
 
             if (Player1Score > Player2Score)
             {
-                WinnerText.text = "-HUE-";
+                //WinnerText.text = "-HUE-";
+                HueWinScreen.SetActive(true);
             }
             else if (Player2Score > Player1Score)
             {
-                WinnerText.text = "MONO";
+                //WinnerText.text = "MONO";
+                MonoWinScreen.SetActive(true);
             }
             else if (Player1Score == Player2Score)
             {
-                WinnerText.text = "BOTH";
+                WinnerText.text = "TIE";
+                TieScreen.SetActive(true);
             }
             else
             {
                 print("How Did you get here???");
-            }
+            } 
 
 
 
